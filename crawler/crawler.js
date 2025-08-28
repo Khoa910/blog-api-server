@@ -37,7 +37,7 @@ export const runCrawler = async () => {
     const url = "https://api.viblo.asia/posts/newest?page=1&per_page=10";
     const { data } = await axios.get(url);
 
-    const posts = data.data.slice(0, 20);
+    const posts = data.data.slice(0, 5);
     console.log(`API trả về ${posts.length} bài`);
 
     for (const p of posts) {
