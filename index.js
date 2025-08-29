@@ -10,10 +10,8 @@ import cors from 'cors';
 import { runCrawler } from "./crawler/crawler.js";
 
 const app = express();
-app.use(cors({
-  origin: process.env.CLIENT_URL, 
-  credentials: true,
-}));
+app.use(cors(process.env.CLIENT_URL));
+
 app.use(clerkMiddleware()); // Middleware to handle Clerk authentication
 app.use("/webhooks", webhookRouter);
 app.use(express.json());
